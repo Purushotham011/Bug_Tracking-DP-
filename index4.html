@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bug Tracker</title>
   <link rel="stylesheet" href="css/style4.css">
+  
   <style>
-    /* Make the webpage fullscreen with a 16:9 ratio */
     html, body {
       height: 100%;
       margin: 0;
@@ -72,70 +72,9 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       font-family: 'San Francisco', sans-serif;
     }
-
-    /* Modal Styling */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.4);
-      padding-top: 60px;
-    }
-    
-    .modal-content {
-      background-color: #fefefe;
-      margin: 5% auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 400px;
-      border-radius: 10px;
-      font-family: 'San Francisco', sans-serif;
-    }
-    
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close:hover, .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .login-form input[type="email"], .login-form input[type="password"] {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    .login-form button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      background-color: #000;
-      color: white;
-      border: none;
-      border-radius: 5px;
-    }
-
-    .create-account {
-      text-align: center;
-      margin-top: 15px;
-      font-size: 14px;
-    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <!-- Toolbar -->
@@ -214,64 +153,7 @@
     <!-- Floating Chat Button -->
     <button id="chatButton" class="floating-chat-btn">Chat</button>
   </div>
-
-  <!-- Login Modal -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeLoginModal()">&times;</span>
-      <h2>Login</h2>
-      <form class="login-form">
-        <label>Email address</label>
-        <input type="email" placeholder="Email address" required>
-        <label>Password</label>
-        <input type="password" placeholder="Password" required>
-        <button type="submit">Sign In</button>
-        <div class="create-account">
-          <p>Lost password? <a href="#">Forgot Password</a></p>
-          <button onclick="createAccount()">Create an Account</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    function showLoginModal() {
-      document.getElementById("loginModal").style.display = "block";
-    }
-
-    function closeLoginModal() {
-      document.getElementById("loginModal").style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById("loginModal");
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
-
-    function createAccount() {
-      alert("Redirecting to account creation page.");
-    }
-
-    let bugCount = 0;
-    document.getElementById("reportBugForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-      const bugTitle = document.getElementById("bugTitle").value;
-      const description = document.getElementById("description").value;
-      const language = document.getElementById("bugLanguage").value;
-      addBugToTable(bugTitle, description, language);
-      document.getElementById("reportBugForm").reset();
-    });
-
-    function addBugToTable(title, description, language) {
-      const tableBody = document.getElementById("bugTableBody");
-      bugCount++;
-      const newRow = document.createElement("tr");
-      newRow.innerHTML = `<td>${bugCount}</td><td>${title}</td><td>${description}</td><td>${language}</td>`;
-      tableBody.appendChild(newRow);
-    }
-  </script>
+  <script src="/Js/js4.js"></script> 
 </body>
 </html
 
